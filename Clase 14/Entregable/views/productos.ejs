@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+</head>
+
+<body>
+    <% if(productos) { %>
+        <% if(productos.length > 1) { %>
+            <% productos.forEach(function(producto) { %>
+                <h2>Productos <%= producto.id %></h2>
+                <ul>
+                    <li><strong>Nombre: </strong><%= producto.nombre %></li>
+                    <li><strong>Descripcion: </strong><%= producto.descripcion %></li>
+                    <li><strong>Precio: </strong> <%= producto.precio %></li>
+                    <li><strong>Url Foto: </strong> <%= producto.foto %></li>
+                    <li><strong>Codigo: </strong> <%= producto.codigo %></li>
+                    <li><strong>Id: </strong> <%= producto.id %></li>
+                </ul>
+            <% }) %>
+            <form action="/api/productos/" method="POST">
+                <label>Nombre:</label>
+                <input type="text" name="nombre" required>
+                <br>
+                <label>Descripcion:</label>
+                <input type="text" name="descripcion" required>
+                <br>
+                <label>Precio :</label>
+                <input type="text" name="precio" required>
+                <br>
+                <label>Direccion Imagen:</label>
+                <input type="text" name="foto" required>
+                <br>
+                <label>Codigo :</label>
+                <input type="text" name="codigo" required>
+                <br>
+                <label>Stock :</label>
+                <input type="text" name="stock" required>
+        
+                <button>Agregar</button>
+            </form>
+        <% } else { %>
+            <h2>Producto <%= productos.id %></h2>
+            <ul>
+                <li><strong>Nombre: </strong><%= productos.nombre %></li>
+                <li><strong>Descripcion: </strong><%= productos.descripcion %></li>
+                <li><strong>Precio:</strong> <%= productos.precio %></li>
+                <li><strong>Url Foto:</strong> <%= productos.foto %></li>
+                <li><strong>Codigo:</strong> <%= productos.codigo %></li>
+                <li><strong>Id:</strong> <%= productos.id %></li>
+            </ul>
+
+            <h2>Edita el producto</h2>
+    
+            <form method="POST" action="/api/productos/<%=productos.id%>?_method=PUT">
+                <label>Nombre:</label>
+                <input type="text" name="nombre" value= <%= productos.nombre %> required>
+                <label>Descripcion:</label>
+                <input type="text" name="descripcion" value= <%= productos.descripcion %> required>
+                <label>Precio :</label>
+                <input type="text" name="precio" value=<%= productos.precio %> required>
+                <label>Direccion Imagen:</label>
+                <input type="text" name="foto" value=<%= productos.foto %> required>
+                <label>Codigo :</label>
+                <input type="text" name="codigo" value=<%= productos.codigo %> required>
+                <label>Stock :</label>
+                <input type="text" name="stock" value=<%= productos.stock %> required>
+                <br>
+                <button>Editar</button>
+            </form>
+            
+
+            <form method="POST" action="/api/productos/<%=productos.id%>?_method=DELETE">
+                <button>Borrar</button>
+            </form>
+        <% } %>
+    <% } else { %>
+        <h2>No tenemos productos</h2>
+    <% } %>
+
+    
+</body>
+
