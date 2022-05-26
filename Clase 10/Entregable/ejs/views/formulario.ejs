@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejs</title>
+</head>
+
+<body>
+    <h2>Agregar Productos</h2>
+    <h2>Ingrese Producto</h2>
+    <form action="/api/productos" method="POST">
+        <label>Titulo:</label>
+        <input type="text" name="title">
+
+        <label>Precio :</label>
+        <input type="text" name="price">
+
+
+        <label>Direccion Imagen:</label>
+        <input type="text" name="thumbnail">
+
+        <button>Enviar</button>
+    </form>
+    <br>
+    <a href="/api/productos">Ver todos los productos</a>
+</body>
+
+</html>

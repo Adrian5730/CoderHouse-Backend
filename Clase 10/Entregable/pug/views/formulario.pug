@@ -1,0 +1,21 @@
+html
+    head
+        title='Mi plantilla de Formulario Pug JS'
+    body
+        h2 Agregar Productos
+        h2 Ingrese Producto
+    form(action="/api/productos" method="POST") 
+        label Titulo :
+        input(type="text" name="title")
+
+        label Precio :
+        input(type="text" name="price")
+
+        label Direccion Imagen:
+        input(type="text" name="thumbnail")
+        <button>Enviar</button>
+    br
+    a(href="/api/productos") Ver todos los productos
+
+
+

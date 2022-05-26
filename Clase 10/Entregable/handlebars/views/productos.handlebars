@@ -1,0 +1,15 @@
+{{#if data}}
+    {{#each data}}
+        <h2>Producto {{this.id}}</h2>
+        <ul>
+            <li>{{title}}</li>
+            <li>{{price}}</li>
+            <li>{{this.thumbnail}}</li>
+            <li>{{this.id}}</li>
+        </ul>
+    {{/each}}
+{{else}}
+    <h2>No tenemos productos</h2>
+{{/if}}
+
+<a href="/api/">Inicio</a>

@@ -1,0 +1,15 @@
+html
+    head
+        title='Mi plantilla de Productos Pug JS'
+    body
+    if productos
+        each producto, index in productos
+            h2='Producto '+ producto.id
+            ul
+                li= producto.title 
+                li= producto.price 
+                li= producto.thumbnail
+                li= producto.id
+    else 
+        h2 'No tenemos productos'
+    <a href="/api/">Inicio</a>

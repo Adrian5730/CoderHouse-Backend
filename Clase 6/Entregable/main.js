@@ -22,7 +22,7 @@ class Contenedor {
             return JSON.parse(arrayProductos)
         }
         catch (e) {
-            console.log(`Tiro erro: ${e}`);
+            console.log(`Tiro error: ${e}`);
             return []
         }
     }

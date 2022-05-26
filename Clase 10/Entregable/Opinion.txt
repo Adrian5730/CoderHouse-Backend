@@ -1,0 +1,6 @@
+Los tres tienen la misma funcion pero tienen diferente plantilla para modificar y utilizar js en ellas,
+me resulto mucho mas facil utilizar ejs por que ya lo habia manejado antes pero handlebars no se queda atras
+me gusto mucho su plantilla yo diria que el top 3 queda asi:
+1 ejs
+2 handlebars
+3 pug
