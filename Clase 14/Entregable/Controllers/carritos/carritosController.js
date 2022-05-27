@@ -5,7 +5,11 @@ let productos = require('../../public/db/productos')
 let carritoController = {
 
     mostrarProductos: function (req, res) {
-
+        let idCarrito = req.params.id
+        let carrito = carritos.find(item => item.id === 1)
+        let productosCarrito = carrito.productos
+        console.log(productosCarrito)
+        res.render('productos', {productos: productosCarrito})
     },
 
     crearCarrito: function (req, res) {
@@ -19,18 +23,18 @@ let carritoController = {
         let nuevoCarrito = {
             id: newId,
             timesTamp: new Date(),
-            productos: {}
+            productos: []
         }
         carritos.push(nuevoCarrito)
         console.log(carritos)
-        res.redirect(`/api/carrito/:${newId}/producto`)
+        res.redirect(`/api/productos`)
     },
 
     borrarCarrito: function (req, res) {
         let idCarrito = req.params.id
         let indice = productos.find(item => item.id === idCarrito)
         carritos.splice(indice, 1)
-        res.redirect(`/api/carrito/:${newId}/producto`)
+        res.redirect(`/api/productos`)
     },
 
     sumProdsCarrito: function (req, res) {
@@ -48,14 +52,9 @@ let carritoController = {
                 precio: producto.precio,
                 stock: producto.stock,
             }
-            let carritoProduct = carritos.productos ? carritos.productos : {}
-            const nuevoProduct = Object.assign(carritoProduct, prodCarrito)
-            carritos.productos = nuevoProduct
-            console.log(carritoProduct)
-            console.log(carritos)
-            // console.log(nuevoProduct)
-
-
+            let nuevoArrayProductos = carrito.productos
+            nuevoArrayProductos.push(prodCarrito)
+            res.redirect(`/api/carrito/1/productos`)
 
         } else {
             res.send("No existe ningun producto con ese id")
