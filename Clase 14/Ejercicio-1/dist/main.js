@@ -1,0 +1,1 @@
+[2,3,5,7].map((o=>o*o)).forEach((o=>console.log(o)));

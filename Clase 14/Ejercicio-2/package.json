@@ -1,0 +1,19 @@
+{
+  "name": "entregable-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./mensajes.js",
+  "scripts": {
+
+    "build": "webpack ./mensaje1.js ./mensaje2.js ./mensaje3.js -o ./mensajes.js --mode=production",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "webpack": "^5.72.1",
+    "webpack-cli": "^4.9.2"
+  }
+}
