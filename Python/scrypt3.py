@@ -21,25 +21,25 @@ import win32con
 # X: 1613 Y:  608 RGB: (167, 171, 233)
 
 
-def click(x, y):
-    win32api.SetCursorPos((x, y))
-    win32api.mouse_event(win32con.MOUSEEVENTF_LEFTDOWN, 0, 0)
-    time.sleep(0.01)
-    win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP, 0, 0)
+# def click(x, y):
+#     win32api.SetCursorPos((x, y))
+#     win32api.mouse_event(win32con.MOUSEEVENTF_LEFTDOWN, 0, 0)
+#     time.sleep(0.01)
+#     win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP, 0, 0)
 
-def recolectarEnergia():
-        print('entro')
-        time.sleep(5)
-        click(1771, 114)
-        time.sleep(5)
-        click(1023, 64)
-
-
+# def recolectarEnergia():
+#         print('entro')
+#         time.sleep(5)
+#         click(1771, 114)
+#         time.sleep(5)
+#         click(1023, 64)
 
 
 
-while 1:
-    if keyboard.is_pressed('e'):
-        while 1:
-            recolectarEnergia()
+
+
+# while 1:
+#     if keyboard.is_pressed('e'):
+#         while 1:
+#             recolectarEnergia()
 

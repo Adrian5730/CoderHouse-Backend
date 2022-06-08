@@ -1,0 +1,37 @@
+<div class="container">
+    <h2 class="titulo">Ingrese Producto</h2>
+    <form onsubmit="return addProduct(this)">
+        <label for="formGroupExampleInput" class="form-label">Titulo:</label>
+        <input type="text" class="form-control" id="title" placeholder="Titulo">
+        <label for="formGroupExampleInput2" class="form-label">Precio :</label>
+        <input type="text" class="form-control" id="price" placeholder="Precio Producto">
+        <label for="formGroupExampleInput2" class="form-label">Direccion Imagen:</label>
+        <input type="text" class="form-control" id="thumbnail" placeholder="Url Imagen">
+        <input type="submit" class=" btn btn-primary inputEnviar"></input>
+    </form>
+    <h3 class="subtitulo">Lista de productos</h3>
+    <table id="table">
+        <thead>
+            <tr role="row">
+                <th>Titulo</th>
+                <th>Precio</th>
+                <th>Url</th>
+            </tr>
+        </thead>
+        <tbody id="products">
+
+        </tbody>
+    </table>
+</div>
+
+<div class="container">
+    <h2 class="titulo">Centro de Mensajes</h2>
+    <form onsubmit="return addMessage(this)">
+        <input type="email" class="form-control" required id="correo" placeholder="ejemplo@gmail.com">
+        <div id="messages"></div>
+        <input type="text" class="form-control"  id="text" placeholder="Escribe aca tu mensaje">
+        <input type="submit" class=" btn btn-primary inputEnviar"></input>
+    </form>
+</div>
+</form>
+<br>
