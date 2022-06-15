@@ -1,0 +1,100 @@
+
+1- use empresa
+
+//Mensajes
+db.createCollection('mensajes')
+
+1-2 db.mensajes.insertMany([
+    {correo: 'ejemplo@hotmail.com', date: new Date(), mensaje: 'Hola'},
+    {correo: 'ejemplo2@hotmail.com', date: new Date(), mensaje: 'como estas?'},
+    {correo: 'ejemplo@hotmail.com', date: new Date(), mensaje: 'bien y tu?'},
+    {correo: 'ejemplo2@hotmail.com', date: new Date(), mensaje: 'ahi vamos'},
+    {correo: 'ejemplo@hotmail.com', date: new Date(), mensaje: 'y que haces?'},
+    {correo: 'ejemplo2@hotmail.com', date: new Date(), mensaje: 'nada programando'},
+    {correo: 'ejemplo@hotmail.com', date: new Date(), mensaje: 'que programas una vida nueva?'},
+    {correo: 'ejemplo2@hotmail.com', date: new Date(), mensaje: 'ojala, programo una base de datos'},
+    {correo: 'ejemplo@hotmail.com', date: new Date(), mensaje: 'que chimba'},
+    {correo: 'ejemplo2@hotmail.com', date: new Date(), mensaje: 'sisas'}
+    ])
+
+3- db.mensajes.find()
+4- db.mensajes.find().count()
+
+
+//
+db.createCollection('productos')
+
+1-2 db.productos.insertMany([
+    { 
+        "title": "Freidora de Aire Gadnic F4.0 Sin Aceite 4Lts Digital",
+        "price": 3400,
+        "thumbnail": "https://images.bidcom.com.ar/resize?src=https://www.bidcom.com.ar/publicacionesML/productos/FREI0001/1200x900-FREI0001-4.jpg&w=500&q=100",
+    },
+    {
+        "title": "Freidora Eléctrica Moretti Comercial Fryer-11 11L 220V 3500W",
+        "price": 4320,
+        "thumbnail": "https://images.bidcom.com.ar/resize?src=https://www.bidcom.com.ar/publicacionesML/productos/FREI0100/1000x1000-FREI0100.jpg&w=500&q=100",
+    },
+    {
+        "title": "Freidora de Aire sin Aceite Gadnic FA3.0",
+        "price": 1280,
+        "thumbnail": "https://images.bidcom.com.ar/resize?src=https://www.bidcom.com.ar/publicacionesML/productos/FREI0006/1000x1000-FREI0006.jpg&w=500&q=100",
+    },
+    {
+        "title": "Producto 4",
+        "price": 900,
+        "thumbnail": "url/imagen4",
+    },
+    {
+        "title": "Producto 5",
+        "price": 2860,
+        "thumbnail": "url/imagen5",
+    },
+    {
+        "title": "Producto 6",
+        "price": 4320,
+        "thumbnail": "url/imagen6",
+    },
+    {
+        "title": "Producto 7",
+        "price": 490,
+        "thumbnail": "url/imagen7",
+    },
+    {
+        "title": "Producto 8",
+        "price": 2605,
+        "thumbnail": "url/imagen8",
+    },
+    {
+        "title": "Producto 9",
+        "price": 3310,
+        "thumbnail": "url/imagen9",
+    },
+    {
+        "title": "Producto 10",
+        "price": 3310,
+        "thumbnail": "url/imagen9",
+    }
+    ])
+
+3- show collections
+    db.productos.find()
+
+4- db.productos.find().count()
+
+5- 
+    a) db.productos.insertOne({title: "aspiradora robot", price: 5000, thumbnail:"url/aspiradora" })
+    b) 
+        1- db.productos.find({title: 'aspiradora robot'})
+        2- db.productos.find({price: {$lt: 1000}})
+        3- db.productos.find( { $and: [ {price: {$gt:1000}}, {price:{$lt:3000}} ] })
+        4- db.productos.find({price: {$gt : 3000}})
+        5- db.productos.find().sort({price: 1}).limit(1).skip(3)
+    
+    c) db.productos.updateMany({price: {$gt: 1}}, {$set: {stock: 100}})
+
+    d) db.productos.updateMany({price: {$gt: 4000}}, {$set: {stock: 0}})
+
+    e) db.productos.deleteMany({price: {$lt: 1000}})
+
+6- db.createUser({ user: 'pepe', pwd: 'asd456', roles: [{role: 'read', db: 'empresa'} ]})
