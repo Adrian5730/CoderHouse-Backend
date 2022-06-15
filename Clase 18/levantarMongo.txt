@@ -1,0 +1,2 @@
+mongod --config /usr/local/etc/mongo.config
+mongod --dbpath "C:\Users\camil\Dropbox\PC\Documents\CoderHouse-Adrian-Olave\CoderHouse-Backend\Clase 18\mibasemongo" --auth
