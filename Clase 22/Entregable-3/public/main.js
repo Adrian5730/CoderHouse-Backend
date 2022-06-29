@@ -2,11 +2,17 @@ const socket = io.connect();
 
 function addMessage(e) {
     const message = {
-        correo: document.getElementById("correo").value,
-        date: new Date(),
-        message: document.getElementById("text").value
+        author:{
+            id: document.getElementById("id").value,
+            nombre: document.getElementById("nombre").value,
+            apellido: document.getElementById("apellido").value,
+            edad: document.getElementById("edad").value,
+            alias: document.getElementById("alias").value,
+            date: new Date()
+        },
+        text: document.getElementById("text").value,
+        
     }
-
     socket.emit("new-message", message);
     return false;
 }
@@ -15,9 +21,9 @@ function render(data) {
     const html = data.map((elem, index) => {
         return (`
             <div>
-                <p class="correo">${elem.correo}</p>
+                <p class="correo">${elem.id}</p>
                 <p><strong>[</strong><p class="fecha">${elem.date}</p><strong>]</strong></p>
-                <em class="mensaje"> ${elem.message}</em>
+                <em class="mensaje"> ${elem.text}</em>
             </div>
         `)
     }).join(" ")
@@ -43,13 +49,13 @@ function addProduct() {
 function renderProduct(data) {
     console.log(data)
     const html = data.map((elem, index) => {
-        return (`
-                    <tr role="row">
+        console.log(elem)
+        return (`<tr role="row">
                         <td>${elem.title}</td>
                         <td>${elem.price}</td>
                         <td><img src="${elem.thumbnail}" alt="${elem.title}"></td>
                     </tr>
-                    `)
+                `)
     })
 
     document.getElementById("products").innerHTML = html

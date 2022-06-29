@@ -27,11 +27,15 @@
 <div class="container">
     <h2 class="titulo">Centro de Mensajes</h2>
     <form onsubmit="return addMessage(this)">
-        <input type="email" class="form-control" required id="correo" placeholder="ejemplo@gmail.com">
-        <div id="messages"></div>
-        <input type="text" class="form-control"  id="text" placeholder="Escribe aca tu mensaje">
+        <input type="email" class="form-control" required id="id" placeholder="ejemplo@gmail.com">
+        <input type="text" class="form-control"  id="nombre" placeholder="Nombre">
+        <input type="text" class="form-control"  id="apellido" placeholder="Apellido">
+        <input type="number" class="form-control"  id="edad" placeholder="Edad">
+        <input type="text" class="form-control"  id="alias" placeholder="Alias">
+        <input type="text" class="form-control"  id="text" placeholder="Mensaje">
         <input type="submit" class=" btn btn-primary inputEnviar"></input>
     </form>
+    <div id="messages"></div>
 </div>
 </form>
 <br>
