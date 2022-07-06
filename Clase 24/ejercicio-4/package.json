@@ -1,0 +1,19 @@
+{
+  "name": "ejercicio-4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "servidor.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "connect-redis": "^6.1.3",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "redis": "^4.1.1"
+  }
+}

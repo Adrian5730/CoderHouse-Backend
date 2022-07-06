@@ -1,0 +1,22 @@
+// path redis-cli  -h redis-10394.c114.us-east-1-4.ec2.cloud.redislabs.com -p 10394 -a kxG4bAQVDDY26evCo3tNiSVh9Y4yx93p
+
+1- keys *
+
+2- set producto1 mesa 
+set producto2 camisa 
+set producto3 gorra  
+set producto4 campera
+set producto5 carpeta
+ 
+3- keys *
+4- get producto1
+get producto2
+get producto3
+get producto4
+get producto5
+
+5- set producto6 carrito EX 30
+6- ttl producto6
+get producto6
+
+7* keys *
