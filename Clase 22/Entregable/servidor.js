@@ -33,10 +33,9 @@ io.on('connection', (socket) => {
     socket.emit('messages', mensajes)
     socket.emit('productos', productos)
 
-    socket.on('new-message', data => {
-
+    socket.on('new-message', async data => {
         apiContenedor.guardarMensaje(data)
-        io.sockets.emit('messages',  apiContenedor.obtenerMensajes())
+        io.sockets.emit('messages',  await apiContenedor.obtenerMensajes())
     })
 
     socket.on('new-product', data => {

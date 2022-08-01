@@ -54,8 +54,8 @@ class ApiContenedor {
         return mensajes
     }
 
-    guardarMensaje(mensaje) {
-        FirebaseContenedor.guardarMensaje(mensaje)
+    async guardarMensaje(mensaje) {
+        await FirebaseContenedor.guardarMensaje(mensaje)
     }
 
     async obtenerMensajes() {
@@ -74,9 +74,7 @@ class ApiContenedor {
             console.log(util.inspect(objeto,false,12,true))
         }
         const normalizedAutores = normalize({id:"mensajes", mensajes}, chat)
-
-        print(normalizedAutores)
-        // console.log(mensajes.length)
+        return normalizedAutores
     }
 
 

@@ -1,8 +1,7 @@
 const socket = io.connect();
-
 function addMessage(e) {
     const message = {
-        author:{
+        author: {
             id: document.getElementById("id").value,
             nombre: document.getElementById("nombre").value,
             apellido: document.getElementById("apellido").value,
@@ -11,18 +10,34 @@ function addMessage(e) {
             date: new Date()
         },
         text: document.getElementById("text").value,
-        
+
     }
     socket.emit("new-message", message);
     return false;
 }
 
 function render(data) {
-    const html = data.map((elem, index) => {
+    const author = new normalizr.schema.Entity('author');
+    const text = new normalizr.schema.Entity('author', {
+        author: author
+    })
+
+    const chat = new normalizr.schema.Entity('chat', {
+        message: [text]
+    })
+    const denormalizarMensajes = normalizr.denormalize(data.result, chat, data.entities)
+    let data2;
+    if(denormalizarMensajes == undefined){
+        data2 = data
+    } else {
+        data2 = denormalizarMensajes.mensajes
+    }
+
+    const html = data2.map((elem, index) => {
         return (`
             <div>
-                <p class="correo">${elem.id}</p>
-                <p><strong>[</strong><p class="fecha">${elem.date}</p><strong>]</strong></p>
+                <p class="correo">${elem.author.id}</p>
+                <p><strong>[</strong><p class="fecha">${elem.author.date}</p><strong>]</strong></p>
                 <em class="mensaje"> ${elem.text}</em>
             </div>
         `)
@@ -47,9 +62,7 @@ function addProduct() {
 }
 
 function renderProduct(data) {
-    console.log(data)
     const html = data.map((elem, index) => {
-        console.log(elem)
         return (`<tr role="row">
                         <td>${elem.title}</td>
                         <td>${elem.price}</td>
